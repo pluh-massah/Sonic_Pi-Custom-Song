@@ -1,8 +1,51 @@
 use_bpm 136
+
 use_synth :piano
 
+define :m2n8 do
+  play:E4
+  sleep 1
+  play:E5
+  play:Gs4
+  sleep 2
+  play:E5
+  play:Gs4
+  sleep 1
+end
+
+define :m34n6 do
+  play :r
+  sleep 1
+  play:E5
+  play:Gs4
+  play:B4
+  sleep 1
+  play:B4
+  sleep 1
+  play:E5
+  play:Gs4
+  sleep 1
+end
+
+define :m5n7 do
+  play:B4
+  sleep 0.75
+  play:As4
+  sleep 0.25
+  play:Gs4
+  play:B4
+  sleep 0.75
+  play:Cs5
+  sleep 0.25
+  play:B4
+  sleep 1
+  play:Gs4
+  play:E5
+  sleep 1
+end
+
 live_loop:background_notes do
-  8.times do
+  3.times do
     play:E3, amp: 0.25
     sample :hat_tap
     sleep 1
@@ -17,10 +60,25 @@ live_loop:background_notes do
     sample :hat_snap
     sleep 1
   end
+  
+  5.times do
+    play:E3, amp: 1
+    sample :hat_tap
+    sleep 1
+    play:B3, amp: 1
+    play:E4, amp: 1
+    sample :hat_snap
+    sleep 1
+    play:B3, amp: 1
+    sample :hat_tap
+    sleep 1
+    play:E4, amp: 1
+    sample :hat_snap
+    sleep 1
+  end
   stop
 end
 
-# Measure 1
 play :r
 sleep 1
 play:E4
@@ -30,94 +88,18 @@ play:E5
 play:Gs4
 sleep 1
 
-# Measure 2
-play:E4
-sleep 1
-play:E5
-play:Gs4
-sleep 2
-play:E5
-play:Gs4
-sleep 1
+m2n8
 
-# Measures 3 & 4
-2.times do
-  play :r
-  sleep 1
-  play:E5
-  play:Gs4
-  play:B4
-  sleep 1
-  play:B4
-  sleep 1
-  play:E5
-  play:Gs4
-  sleep 1
-end
+m34n6
 
-# Measure 5
-play:B4
-sleep 0.75
-play:As4
-sleep 0.25
-play:Gs4
-play:B4
-sleep 0.75
-play:Cs5
-sleep 0.25
-play:B4
-sleep 1
-play:Gs4
-play:E5
-sleep 1
+m34n6
 
-# Measure 6
-play :r
-sleep 1
-play:E5
-play:Gs4
-play:B4
-sleep 1
-play:B4
-sleep 1
-play:E5
-play:Gs4
-sleep 1
+m5n7
 
-# Measure 7
-play:B4
-sleep 0.75
-play:As4
-sleep 0.25
-play:Gs4
-play:B4
-sleep 0.75
-play:Cs5
-sleep 0.25
-play:B4
-sleep 1
-play:Gs4
-play:E5
-sleep 1
+m34n6
 
-# Measure 8
-play:E4
-sleep 1
-play:E5
-play:Gs4
-sleep 2
-play:E5
-play:Gs4
-sleep 1
+m5n7
 
-play :Gb3, release: 2
-play :Gb4, release: 2
-sleep 2
-play :A4, release: 3
-play :D4, release: 3
-play :Gb4, release: 3
-sleep 3
-play :A4, release: 3
-play :B4, release: 3
-play :D4, release: 3
-play :B5, release: 3
+m2n8
+
+sample :misc_crow
