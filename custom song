@@ -1,0 +1,178 @@
+use_bpm 65
+x = 0.05
+define :drums do
+  sample :drum_heavy_kick
+  sleep 0.5
+  sample :drum_heavy_kick
+  sleep 0.5
+  sample :drum_heavy_kick
+  sleep 0.125
+  sample :drum_heavy_kick
+  sleep 0.125
+  sample :drum_heavy_kick
+  sleep 0.125
+  sample :drum_heavy_kick
+  sleep 0.125
+  sample :drum_heavy_kick
+  sleep 0.125
+  sample :drum_heavy_kick
+  sleep 0.125
+  sample :drum_heavy_kick
+  sleep 0.125
+  sample :drum_heavy_kick
+  sleep 0.125
+  sample :drum_heavy_kick
+  sleep 0.5
+  sample :drum_heavy_kick
+  sleep 0.5
+  sample :drum_heavy_kick
+  sleep 0.5
+  sample :drum_heavy_kick
+  sleep 0.5
+end
+
+define :bowowow do
+  play :F4, release: 0.125, amp: x
+  sleep 0.25
+  play :F4, release: 0.125, amp: x
+  sleep 0.125
+  play :F4, release: 0.0625, amp: x
+  sleep 0.125
+  play :F4, release: 0.25, amp: x
+  sleep 0.25
+  play :G4, release: 0.125, amp: x
+  sleep 0.25
+  
+  play :C4, release: 0.125, amp: x
+  sleep 0.125
+  play :C4, release: 0.0625, amp: x
+  sleep 0.125
+  play :C4, release: 0.25, amp: x
+  sleep 0.25
+  play :C4, release: 0.125, amp: x
+  sleep 0.125
+  
+  if (x<1) then
+    x = x + 0.05
+  end
+  
+  3.times do
+    play :D4, release: 0.125, amp: x
+    sleep 0.125
+    play :D4, release: 0.0625, amp: x
+    sleep 0.125
+    play :D4, release: 0.25, amp: x
+    sleep 0.25
+    play :D4, release: 0.125, amp: x
+    sleep 0.125
+  end
+  
+  if (x<1) then
+    x = x + 0.05
+  end
+  
+  play :F4, release: 0.125, amp: x
+  sleep 0.125
+  play :F4, release: 0.0625, amp: x
+  sleep 0.125
+  play :F4, release: 0.25, amp: x
+  sleep 0.25
+  play :F4, release: 0.125, amp: x
+  sleep 0.25
+  play :G4, release: 0.125, amp: x
+  sleep 0.125
+  play :G4, release: 0.0625, amp: x
+  sleep 0.125
+  
+  play :C4, release: 0.25, amp: x
+  sleep 0.25
+  play :C4, release: 0.125, amp: x
+  sleep 0.25
+  play :C4, release: 0.125, amp: x
+  sleep 0.125
+  play :C4, release: 0.0625, amp: x
+  sleep 0.125
+  
+  if (x<1) then
+    x = x + 0.05
+  end
+  
+  3.times do
+    play :D4, release: 0.25, amp: x
+    sleep 0.25
+    play :D4, release: 0.125, amp: x
+    sleep 0.25
+    play :D4, release: 0.125, amp: x
+    sleep 0.125
+    play :D4, release: 0.0625, amp: x
+    sleep 0.125
+  end
+  
+  if (x<1) then
+    x = x + 0.05
+  end
+  
+  play :F4, release: 0.25, amp: x
+  sleep 0.25
+  play :F4, release: 0.125, amp: x
+  sleep 0.25
+  play :F4, release: 0.125, amp: x
+  sleep 0.125
+  play :F4, release: 0.0625, amp: x
+  sleep 0.125
+  play :G4, release: 0.25, amp: x
+  sleep 0.25
+  
+  play :C4, release: 0.125, amp: x
+  sleep 0.25
+  play :C4, release: 0.125, amp: x
+  sleep 0.125
+  play :C4, release: 0.0625, amp: x
+  sleep 0.125
+  play :C4, release: 0.25, amp: x
+  sleep 0.25
+  
+  if (x<1) then
+    x = x + 0.05
+  end
+  
+  3.times do
+    play :D4, release: 0.125, amp: x
+    sleep 0.25
+    play :D4, release: 0.125, amp: x
+    sleep 0.125
+    play :D4, release: 0.0625, amp: x
+    sleep 0.125
+    play :D4, release: 0.25, amp: x
+    sleep 0.25
+  end
+  
+  if (x<1) then
+    x = x + 0.05
+  end
+end
+
+2.times do
+  drums
+end
+
+use_synth :saw
+live_loop :bowowow do
+  bowowow
+end
+
+6.times do
+  drums
+end
+
+live_loop :pluh do
+  drums
+end
+
+
+live_loop :drum do
+  sample :bd_ada
+  sleep 0.5
+  sample :drum_snare_soft
+  sleep 0.5
+end
